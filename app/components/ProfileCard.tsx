@@ -3,6 +3,7 @@ import { ChevronDown } from 'lucide-react';
 import profile from '../Assets/profile.png';
 import backprofile from '../Assets/backprofile.png';
 
+// Define the props interface
 interface ProfileCardProps {
     name: string;
     description: string;
@@ -12,15 +13,7 @@ interface ProfileCardProps {
     myJobs: number;
 }
 
-const ProfileCard: React.FC<ProfileCardProps> = ({
-    name = 'Albert Flores',
-    description = 'Senior Product Designer | UI/UX Designer | Graphic Designer | Web Developer',
-    location = 'Clinton, Maryland',
-    profileVisitors = 140,
-    resumeViewers = 20,
-    myJobs = 88
-}) => {
-
+const ProfileCard: React.FC<ProfileCardProps> = ({ name, description, location, profileVisitors, resumeViewers, myJobs }) => {
     return (
         <div className="flex flex-col items-center p-4 space-y-4 w-full max-w-sm mx-auto">
             {/* Profile Section */}
@@ -31,8 +24,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                         <Image
                             src={backprofile}
                             alt="Cover Photo"
-                            layout="fill"
-                            objectFit="cover"
+                            fill
+                            className="object-cover"
                         />
                     </div>
 
