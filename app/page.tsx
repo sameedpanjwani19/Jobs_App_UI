@@ -18,6 +18,17 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
 
+    interface Job {
+    title: string;
+    location: string;
+    created_at: string;
+}
+
+interface Props {
+    jobs: Job[];
+    convertDateToDays: (date: string) => string;
+}
+
     const [navOpen, setNavOpen] = useState(false);
     const [userMenuOpen, setUserMenuOpen] = useState(false);
     const [jobs, setJobs] = useState([]);
@@ -159,7 +170,7 @@ const ResponsiveAppBar = () => {
                                 </div>
                                 <div className='flex item-centre'>
                                     <i className='bx bx-map' style={{ color: '#585d6e', marginTop: '4px', marginRight: '2px' }}></i>
-                                    <p className="text-gray-600">{data.location.split("  ")[0]}</p></div>
+                                    <p className="text-gray-600">{data.location.length > 20 ? `${data.location.substring(0, 13)}...` : data.location}</p></div>
                                 <div className="text-sm flex item-centre text-gray-500 mb-4">
                                     <i className='bx bx-time-five' style={{ color: '#585d6e', marginTop: '4px', marginRight: '4px' }}></i>
                                     {convertDateToDays(data.created_at)}</div>
@@ -180,14 +191,14 @@ const ResponsiveAppBar = () => {
                     <h2 className="text-2xl font-bold mb-4">Recommended Jobs</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
                         {jobs.slice(0, 7).map((data, index) => (
-                            <div key={index} className="bg-white rounded-xl shadow p-4" style={{ width: '222px', height: '185px' }}>
+                            <div key={index} className="bg-white rounded-xl shadow p-4" style={{ width: '222px', height: 'auto' }}>
                                 <div className="flex items-center">
                                     <Image src={cardLogo} alt="Logo" width={50} height={50} />
                                     <h3 className="text-md font-bold">{data.title.split(" ")[0]}</h3>
                                 </div>
                                 <div className='flex item-centre'>
                                     <i className='bx bx-map' style={{ color: '#585d6e', marginTop: '4px', marginRight: '2px' }}></i>
-                                    <p className="text-gray-600">{data.location.split("  ")[0]}</p></div>
+                                    <p className="text-gray-600">{data.location.length > 20 ? `${data.location.substring(0, 13)}...` : data.location}</p></div>
                                 <div className="text-sm flex item-centre text-gray-500 mb-4">
                                     <i className='bx bx-time-five' style={{ color: '#585d6e', marginTop: '4px', marginRight: '4px' }}></i>
                                     {convertDateToDays(data.created_at)}</div>
