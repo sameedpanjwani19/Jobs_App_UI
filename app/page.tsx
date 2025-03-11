@@ -11,27 +11,20 @@ import cardLogo from './Assets/card logo.png'
 import axios from 'axios';
 import 'boxicons/css/boxicons.min.css';
 
-
-
-const pages = ['Top Companies', 'Job Tracker', 'My Calendar', 'Documents', 'Messages', 'Notification'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
-
-const ResponsiveAppBar = () => {
-
-    interface Job {
+interface Job {
+    id: number;
     title: string;
     location: string;
     created_at: string;
 }
 
-interface Props {
-    jobs: Job[];
-    convertDateToDays: (date: string) => string;
-}
+const pages = ['Top Companies', 'Job Tracker', 'My Calendar', 'Documents', 'Messages', 'Notification'];
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
+const ResponsiveAppBar: React.FC = () => {
     const [navOpen, setNavOpen] = useState(false);
     const [userMenuOpen, setUserMenuOpen] = useState(false);
-    const [jobs, setJobs] = useState([]);
+    const [jobs, setJobs] = useState<Job[]>([]);
     const convertDateToDays = (dateString: string): string => {
         const date = new Date(dateString);
         const today = new Date();
@@ -162,18 +155,18 @@ interface Props {
                     <hr className="border-t border-gray-300 my-2" />
                     <h2 className="text-2xl font-bold mb-4">Featured Jobs</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4" >
-                        {jobs.slice(0, 8).map((data, index) => (
-                            <div key={index} className="bg-white rounded-xl shadow p-4" style={{ width: '222px', height: '185px' }}>
+                        {jobs.slice(0, 8).map(job => (
+                            <div key={job.id} className="bg-white rounded-xl shadow p-4" style={{ width: '222px', height: '185px' }}>
                                 <div className="flex items-center">
                                     <Image src={cardLogo} alt="Logo" width={50} height={50} />
-                                    <h3 className="text-md font-bold">{data.title.split(" ")[0]}</h3>
+                                    <h3 className="text-md font-bold">{job.title.split(" ")[0]}</h3>
                                 </div>
                                 <div className='flex item-centre'>
                                     <i className='bx bx-map' style={{ color: '#585d6e', marginTop: '4px', marginRight: '2px' }}></i>
-                                    <p className="text-gray-600">{data.location.length > 20 ? `${data.location.substring(0, 13)}...` : data.location}</p></div>
+                                    <p className="text-gray-600">{job.location.length > 20 ? `${job.location.substring(0, 13)}...` : job.location}</p></div>
                                 <div className="text-sm flex item-centre text-gray-500 mb-4">
                                     <i className='bx bx-time-five' style={{ color: '#585d6e', marginTop: '4px', marginRight: '4px' }}></i>
-                                    {convertDateToDays(data.created_at)}</div>
+                                    {convertDateToDays(job.created_at)}</div>
                                 <div className="flex justify-between items-center">
                                     <button
                                         // onClick={/* Handle Apply Now button click */}
@@ -190,18 +183,18 @@ interface Props {
                     <hr className="border-t border-gray-300 my-6" />
                     <h2 className="text-2xl font-bold mb-4">Recommended Jobs</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
-                        {jobs.slice(0, 7).map((data, index) => (
-                            <div key={index} className="bg-white rounded-xl shadow p-4" style={{ width: '222px', height: 'auto' }}>
+                        {jobs.slice(0, 7).map(job => (
+                            <div key={job.id} className="bg-white rounded-xl shadow p-4" style={{ width: '222px', height: 'auto' }}>
                                 <div className="flex items-center">
                                     <Image src={cardLogo} alt="Logo" width={50} height={50} />
-                                    <h3 className="text-md font-bold">{data.title.split(" ")[0]}</h3>
+                                    <h3 className="text-md font-bold">{job.title.split(" ")[0]}</h3>
                                 </div>
                                 <div className='flex item-centre'>
                                     <i className='bx bx-map' style={{ color: '#585d6e', marginTop: '4px', marginRight: '2px' }}></i>
-                                    <p className="text-gray-600">{data.location.length > 20 ? `${data.location.substring(0, 13)}...` : data.location}</p></div>
+                                    <p className="text-gray-600">{job.location.length > 20 ? `${job.location.substring(0, 13)}...` : job.location}</p></div>
                                 <div className="text-sm flex item-centre text-gray-500 mb-4">
                                     <i className='bx bx-time-five' style={{ color: '#585d6e', marginTop: '4px', marginRight: '4px' }}></i>
-                                    {convertDateToDays(data.created_at)}</div>
+                                    {convertDateToDays(job.created_at)}</div>
                                 <div className="flex justify-between items-center">
                                     <button
                                         // onClick={/* Handle Apply Now button click */}
@@ -221,5 +214,4 @@ interface Props {
 };
 
 export default ResponsiveAppBar;
-
 
