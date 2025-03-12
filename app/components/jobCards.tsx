@@ -10,6 +10,9 @@ interface Job {
     title: string;
     location: string;
     created_at: string;
+    company: string;
+    type: string;
+    applicants: string;
 }
 
 const JobCards = () => {
@@ -23,36 +26,46 @@ const JobCards = () => {
 
         if (daysAgo === 0) return "Today";
         if (daysAgo === 1) return "1 day ago";
-        return `${daysAgo} days ago`;
+        return `${daysAgo}days ago`;
     };
 
 
     useEffect(() => {
-        axios.get('https://jsonfakery.com/jobs')
-            .then(response => setJobs(response.data))
+        axios.get('/data.json')
+            .then(response => setJobs(response.data.jobs))
             .catch(error => console.error('Error fetching jobs:', error));
     }, []);
 
   return (
     <div>
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4" >
+        <div className="flex flex-wrap w-100%" style={{gap:'16px'}} >
                         {jobs.slice(0, 8).map(job => (
-                            <div key={job.id} className="bg-white sm:centre rounded-xl shadow " style={{ padding:'10px 20px 10px 20px',  minWidth: '222px', minHeight: 'auto' }}>
-                                <div className="flex items-center">
+                            <div key={job.id} className="bg-white sm:centre rounded-xl shadow " style={{ padding:'10px 20px 10px 20px',  width: '186px', height: '164px' }}>
+                                <div className="flex items-center mb-2" >
                                     <Image src={cardLogo} alt="Logo" width={50} height={50} />
-                                    <h3 className="text-md font-bold">{job.title.split(" ")[0]}</h3>
+                                    <div className='flex flex-col'>
+                                    <p className="text-md font-bold" style={{ fontSize:'12px' }}>{job.title}</p>
+                                    <p style={{ fontSize:'12px' }}>{job.company}</p>
+                                    </div>
+
                                 </div>
-                                <div className='flex item-centre'>
-                                    <i className='bx bx-map' style={{ color: '#585d6e', marginTop: '4px', marginRight: '2px' }}></i>
-                                    <p className="text-gray-600">{job.location.length > 20 ? `${job.location.substring(0, 13)}...` : job.location}</p></div>
+                                <div className='flex item-centre '>
+                                    <i className='bx bx-map' style={{ color: '#585d6e', marginTop: '2px', marginRight: '2px' }}></i>
+                                    <p className="text-gray-500" style={{ fontSize:'12px' }}>{job.location.length > 20 ? `${job.location.substring(0, 13)}...` : job.location}</p>
+                                    <p className='text-gray-500' style={{ fontSize:'12px' }}>({job.type})</p></div>
                                 <div className="text-sm flex item-centre text-gray-500 mb-4">
-                                    <i className='bx bx-time-five' style={{ color: '#585d6e', marginTop: '4px', marginRight: '4px' }}></i>
-                                    {convertDateToDays(job.created_at)}</div>
+                                    <i className='bx bx-time-five' style={{ fontSize:'12px' , color: '#585d6e', marginTop: '2px' , marginLeft:'2px', marginRight:'2px'}}></i>
+                                    <div className='flex' style={{ fontSize:'12px'}}>
+                                    <p >{convertDateToDays(job.created_at)}</p> <span>|</span> <p style={{color: '#0154AA'}}> {job.applicants} Applicants</p>
+                                    </div>
+                                   
+                                   </div>
+
                                 <div className="flex justify-between items-center">
                                     <button
                                         // onClick={/* Handle Apply Now button click */}
                                         className="bg-[#0154AA] text-white py-2 px-6 rounded transition-all duration-300 hover:bg-black"
-                                        style={{ fontSize: '16px', borderRadius: '8px' }}
+                                        style={{ fontSize: '12px', borderRadius: '8px' }}
                                     >
                                         Apply Now
                                     </button>
