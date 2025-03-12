@@ -209,7 +209,7 @@ const ResponsiveAppBar: React.FC = () => {
                                         style={{ fontSize: '16px', borderRadius: '8px' }}
                                     >
                                         Apply Now
-                                    </button>                                    <FaBookmark className="text-gray-400 cursor-pointer" />
+                                    </button>                                    <FaBookmark className="text-gray-400 cursor-pointer"  style={{ fontSize: '24px' }}/>
                                 </div>
                             </div>
                         ))}
