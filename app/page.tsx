@@ -123,7 +123,7 @@ const ResponsiveAppBar: React.FC = () => {
                             />
                         </div>
 
-                        <div className="flex flex-col md:flex-row gap-3 mt-4 md:mt-0">
+                        <div className="flex flex-col md:flex-row gap-3 mt-4 md:mt-0"style={{ width: '100%'}}>
                             {/* Dropdown 1 */}
                             <select className="w-full md:w-auto p-3 rounded text-gray-500 bg-white">
                                 <option value="">Select Location</option>
@@ -132,7 +132,7 @@ const ResponsiveAppBar: React.FC = () => {
                             </select>
 
                             {/* Dropdown 2 */}
-                            <select className="w-full md:w-auto p-3 rounded text-gray-500 bg-white">
+                            <select className="w-full md:w-auto p-3 rounded text-gray-500 bg-white"style={{ width: '100%'}}>
                                 <option value="">Job Type</option>
                                 <option value="remote">Remote</option>
                                 <option value="onsite">On-site</option>
@@ -153,17 +153,17 @@ const ResponsiveAppBar: React.FC = () => {
 
 
 
-                    <div className='flex item-center gap-4 pb-3'>
-                        <p className='p-2 text-gray-500'>Similar :</p>
-                        <button className='p-2 rounded border border-gray-400 text-gray-500'>Frontend</button>
-                        <button className='p-2 rounded border border-gray-400 text-gray-500'>Backend</button>
-                        <button className='p-2 rounded border border-gray-400 text-gray-500'>Graphic Designer</button>
+                    <div className=' flex item-center gap-4 pb-3'>
+                        <p className='p-2 text-gray-500'>Similar:</p>
+                        <button className='p-1 rounded border border-gray-400 text-gray-500'>Frontend</button>
+                        <button className='p-1 rounded border border-gray-400 text-gray-500'>Backend</button>
+                        <button className='p-1 rounded border border-gray-400 text-gray-500'>Graphic Designer</button>
                     </div>
                     <hr className="border-t border-gray-300 my-2" />
                     <h2 className="text-2xl font-bold mb-4">Featured Jobs</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4" >
+                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4" >
                         {jobs.slice(0, 8).map(job => (
-                            <div key={job.id} className="bg-white rounded-xl shadow p-4" style={{ width: '222px', height: '185px' }}>
+                            <div key={job.id} className="bg-white sm:centre rounded-xl shadow p-4" style={{ minWidth: '222px', minHeight: 'auto' }}>
                                 <div className="flex items-center">
                                     <Image src={cardLogo} alt="Logo" width={50} height={50} />
                                     <h3 className="text-md font-bold">{job.title.split(" ")[0]}</h3>
@@ -189,9 +189,9 @@ const ResponsiveAppBar: React.FC = () => {
                     </div>
                     <hr className="border-t border-gray-300 my-6" />
                     <h2 className="text-2xl font-bold mb-4">Recommended Jobs</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-1 sm:centre md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
                         {jobs.slice(0, 7).map(job => (
-                            <div key={job.id} className="bg-white rounded-xl shadow p-4" style={{ width: '222px', height: 'auto' }}>
+                            <div key={job.id} className="bg-white rounded-xl shadow p-4" style={{ minWidth: '222px', minHeight: 'auto' }}>
                                 <div className="flex items-center">
                                     <Image src={cardLogo} alt="Logo" width={50} height={50} />
                                     <h3 className="text-md font-bold">{job.title.split(" ")[0]}</h3>
