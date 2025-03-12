@@ -1,6 +1,7 @@
 import ProfileCard from './components/ProfileCard';
 import 'boxicons/css/boxicons.min.css';
 import Navbar from './components/Navbar';
+import FeaturedJobs from './components/featuredJobs';
 import JobCards from './components/jobCards';
 
 
@@ -81,7 +82,7 @@ const Page = () => {
                             <a href="/" className='text-l text-blue-600 mb-3' style={{ borderBottom: '2px solid blue' }}>See Featured Jobs</a>
                         </div>
                         <div>
-                            <JobCards />
+                            <FeaturedJobs />
                         </div>
                     </div>
                     <hr className="border-t border-gray-300 my-6" />
