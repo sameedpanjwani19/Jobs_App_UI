@@ -32,9 +32,9 @@ const Navbar = () => {
                         ))}
                         <div className="hidden lg:flex items-center px-4" style={{ backgroundColor: '#f6f9ff', fontSize: '16px', borderRadius: '10px' }}>
                             <i className='bx bx-search-alt-2' style={{ color: '#737a91', fontSize: '24px', marginTop: '4px' }}></i>
-                            <input type="text" placeholder="Search" className="p-2  rounded-md w-48" />
+                            <input type="text" placeholder="Search" className="p-2  rounded-md w-40" />
                         </div>
-                        <button className="bg-blue-600 text-white p-2 rounded transition-colors hover:bg-blue-700" style={{ backgroundColor: '#0154AA', borderRadius: '10px' }}>Resume Builder</button>
+                        <button className="bg-blue-600 text-white p-2 rounded transition-colors hover:bg-blue-700" style={{ fontSize:'12px', backgroundColor: '#0154AA', borderRadius: '10px' }}>Resume Builder</button>
                         <button className="focus:outline-none" onClick={() => setUserMenuOpen(!userMenuOpen)}>
                             <Image src={Picture} alt="User Avatar" width={38} height={38} className="rounded-full" />
                         </button>
