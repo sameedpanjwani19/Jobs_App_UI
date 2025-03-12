@@ -37,7 +37,7 @@ const JobCards = () => {
     <div>
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4" >
                         {jobs.slice(0, 8).map(job => (
-                            <div key={job.id} className="bg-white sm:centre rounded-xl shadow p-4" style={{ minWidth: '222px', minHeight: 'auto' }}>
+                            <div key={job.id} className="bg-white sm:centre rounded-xl shadow " style={{ padding:'10px 20px 10px 20px',  minWidth: '222px', minHeight: 'auto' }}>
                                 <div className="flex items-center">
                                     <Image src={cardLogo} alt="Logo" width={50} height={50} />
                                     <h3 className="text-md font-bold">{job.title.split(" ")[0]}</h3>

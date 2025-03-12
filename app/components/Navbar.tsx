@@ -19,7 +19,7 @@ const Navbar = () => {
         <nav className="bg-white text-grey shadow-md sticky top-0 z-50">
                 <div className="container mx-auto flex items-center justify-between p-4">
                     <Link href="/">
-                        <div className="flex md:w-[20%] items-center space-x-2 cursor-pointer">
+                        <div className="flex items-center space-x-2 cursor-pointer">
                             <Image src={Logo} alt="Logo" width={42} height={38} />
                             <span className="font-bold "  style={{ color: '#0154AA', fontSize:'20px' }}>Find Jobs</span>
                         </div>
@@ -30,11 +30,11 @@ const Navbar = () => {
                                 <button className="hover:text-gray-500 transition-colors" style={{fontSize:'14px'}}>{page}</button>
                             </Link>
                         ))}
-                        <div className="hidden lg:flex items-center px-4 md:w-20" style={{ backgroundColor: '#f6f9ff', fontSize: '16px', borderRadius: '10px' }}>
+                        <div className="hidden lg:flex items-center px-4" style={{ backgroundColor: '#f6f9ff', fontSize: '16px', borderRadius: '10px' }}>
                             <i className='bx bx-search-alt-2' style={{ color: '#737a91', fontSize: '24px', marginTop: '4px' }}></i>
-                            <input type="text" placeholder="Search" className="p-2 md:w-[10%] rounded-md w-40" />
+                            <input type="text" placeholder="Search" className="p-2 rounded-md w-40" />
                         </div>
-                        <button className="bg-blue-600 text-white p-2 rounded transition-colors hover:bg-blue-700" style={{ fontSize:'12px', backgroundColor: '#0154AA', borderRadius: '10px' }}>Resume Builder</button>
+                        <button className="bg-blue-600 display-block text-white p-2 rounded transition-colors hover:bg-blue-700" style={{ width:'100px', fontSize:'10px', backgroundColor: '#0154AA', borderRadius: '10px' }}>Resume Builder</button>
                         <button className="focus:outline-none" onClick={() => setUserMenuOpen(!userMenuOpen)}>
                             <Image src={Picture} alt="User Avatar" width={38} height={38} className="rounded-full" />
                         </button>
