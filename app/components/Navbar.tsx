@@ -34,7 +34,7 @@ const Navbar = () => {
                             <i className='bx bx-search-alt-2' style={{ color: '#737a91', fontSize: '24px', marginTop: '4px' }}></i>
                             <input type="text" placeholder="Search" className="p-2 rounded-md w-40" />
                         </div>
-                        <button className="bg-blue-600 display-block text-white p-2 rounded transition-colors hover:bg-blue-700" style={{ width:'100px', fontSize:'10px', backgroundColor: '#0154AA', borderRadius: '10px' }}>Resume Builder</button>
+                        <button className="bg-blue-600 display-block text-white p-2 rounded transition-colors hover:bg-blue-700" style={{ maxWidth:'140px', fontSize:'12px', backgroundColor: '#0154AA', borderRadius: '10px' }}>Resume Builder</button>
                         <button className="focus:outline-none" onClick={() => setUserMenuOpen(!userMenuOpen)}>
                             <Image src={Picture} alt="User Avatar" width={38} height={38} className="rounded-full" />
                         </button>
