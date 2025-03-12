@@ -38,9 +38,10 @@ const featuredJobs = () => {
 
   return (
     <div>
-        <div className="flex flex-wrap w-100%" style={{gap:'16px'}} >
+        <div className="flex flex-wrap sm:w-[320px] md:w-[100%] 2xl:w-[100%]  " style={{gap:'16px'}} >
                         {jobs.slice(0, 8).map(job => (
-                            <div key={job.id} className="bg-white sm:centre rounded-xl shadow " style={{ padding:'10px 20px 10px 20px',  width: '186px', height: '170px' }}>
+                            <div key={job.id}className="bg-white rounded-xl shadow min-w-[150px] sm:w-[320px] w-full md:w-[186px] xl:w-[186px] 2xl:w-[186px] p-4 flex flex-col justify-between" 
+                            style={{ padding: '10px 20px' }}>
                                 <div style={{ fontSize:'10px' }}><p>Promoted</p></div>
                                 <div className="flex items-center " >
                                     <Image src={cardLogo} alt="Logo" width={50} height={50} />
